@@ -1,0 +1,66 @@
+<div class="top-container">
+
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+
+            <button mat-button>About</button>
+            <button mat-button>Contact</button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+
+    <h1>Pet Data Maintenance</h1>
+
+
+    <div *ngIf="!viewOnly">
+        <input class="new_btn" type="button" value="Add New Record" [routerLink]="['/register-pet']">
+    </div>
+
+    <label class="filter_label">Filter by Category Name : </label>
+
+    <select class="select" [ngModel]="CategoryList" (ngModelChange)="selectCategory($event)">
+        <option *ngFor="let cat of CategoryList" [ngValue]="cat">
+            {{cat.name}}
+        </option>
+    </select>
+
+
+    <input class="search_btn" type="button" value="Search" (click)="searchByCategory()">
+
+    <table class='table' *ngIf="petList">
+        <thead>
+            <tr>
+                <div *ngIf="!viewOnly">
+                    <th></th>
+                </div>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Category Name</th>
+                <th>Photo Url</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pet of petList">
+                <div *ngIf="!viewOnly">
+                    <td>
+                        <a class="editlink" [routerLink]="['/pet/edit/', pet.id]">
+                            <strong>Edit</strong>
+                        </a> |
+                        <a [routerLink]="" (click)="delete(pet.id)">
+                            <strong>Delete</strong>
+                        </a>
+                    </td>
+                </div>
+                <td>{{ pet.id }}</td>
+                <td>{{ pet.name }}</td>
+                <td>{{ pet.status }}</td>
+                <td>{{ pet.categoryName }}</td>
+                <td>{{ pet.photoUrl }}</td>
+                <td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

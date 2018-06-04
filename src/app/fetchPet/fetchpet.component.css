@@ -1,0 +1,78 @@
+ 
+.top-container {
+
+  margin-left: 10px;
+  padding-left: 30px;
+}
+
+h1 { 
+  color: blue;
+  font-size: 30px;
+  font-weight: bolder;
+  text-align: center;
+  text-decoration: underline;
+
+}
+
+tr th {
+    color :black;
+    font-weight: bold;
+    font-size: 16px;
+   
+}
+
+tr td {
+  color : blue;
+ 
+  font-size: 16px;
+ 
+}
+
+
+tbody tr:nth-child(odd){
+  background-color: lightgrey; 
+}
+
+
+tr:hover { 
+  background-color: lightgreen !important;
+ 
+}
+
+
+
+.new_btn {
+  background-color: green;
+  color: white;
+  font-size: 20px;
+
+}
+
+.new_btn:disabled {
+  content:"Hide";
+  display: block;
+  background-color: grey;
+
+}
+
+.filter_label {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  display : inline;
+}
+.select  {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px; 
+
+}
+
+.search_btn {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px; 
+  background-color: green;
+  color: white;
+
+}

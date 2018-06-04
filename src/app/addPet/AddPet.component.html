@@ -1,0 +1,79 @@
+<div class="top-container">
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+
+            <button mat-button>About</button>
+            <button mat-button>Contact</button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+
+    <h1>{{title}} Pet Record </h1>
+    <hr />
+    <div class="form-body">
+        <form [formGroup]="petForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+
+            <div class="form-group row">
+                <label class=" control-label col-md-12" for="Name">Name</label>
+                <div class="col-md-4">
+                    <input class="form-control" type="text" formControlName="name">
+                </div>
+                <span class="text-danger" *ngIf="petForm.controls['name'].hasError('required') && formDir.submitted">
+                    Name is required.
+                </span>
+            </div>
+
+            <div class="form-group row">
+                <label class="control-label col-md-12" for="Status">Status</label>
+                <div class="col-md-4">
+                    <select class="form-control" data-val="true" formControlName="status">
+                        <option value="">-- Select Status --</option>
+                        <option value="available">available</option>
+                        <option value="pending">pending</option>
+                        <option value="sold">sold</option>
+                    </select>
+                </div>
+                <span class="text-danger" *ngIf="petForm.controls['status'].hasError('required') && formDir.submitted">
+                    Status is required
+                </span>
+            </div>
+
+            <div class="form-group row">
+                <label class="control-label col-md-12" for="Category">Category</label>
+                <div class="col-md-4">
+                    <select class="form-control" data-val="true" formControlName="categoryName">
+                        <option value="">-- Select Category --</option>
+                        <option value="Dogs">Dogs</option>
+                        <option value="Cats">Cats</option>
+                        <option value="Rats">Rats</option>
+                        <option value="Rabbits">Rabbits</option>
+                        <option value="Turtles">Turtles</option>
+                        <option value="Snakes">Snakes</option>
+                    </select>
+
+                </div>
+                <span class="text-danger" *ngIf="petForm.controls['categoryName'].hasError('required') && formDir.submitted">
+                    Category is required
+                </span>
+            </div>
+
+            <div class="form-group row">
+                <label class=" control-label col-md-12" for="photoUrl">Photo Url</label>
+                <div class="col-md-4">
+                    <input class="form-control" type="text" formControlName="photoUrl">
+                </div>
+                <span class="text-danger" *ngIf="petForm.controls['photoUrl'].hasError('required') && formDir.submitted">
+                    Photo Url is required.
+                </span>
+            </div>
+
+
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Save</button>
+                <button class="btn" (click)="cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.mat-card {    
+    text-align: -webkit-center;    
+}    
+
+
+mat-card {    
+    max-width: 80%;    
+    margin: 2em auto;    
+    text-align: center;    
+}    
+
+
+.mat-dialog-actions {    
+    text-align: -webkit-center;    
+}  
+ 

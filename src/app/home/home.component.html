@@ -1,0 +1,91 @@
+<div class="top-container">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+
+      <button mat-button>About</button>
+      <button mat-button>Contact</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+
+
+  <h2>
+    <u>Technology Overview</u>
+  </h2>
+  <ul>
+
+    <li> Back End Tool : Spring Boot with Security, Web, JPA and SQL Server</li>
+    <li> Front End Tool : Angular 5 </li>
+    <li>
+      Cloud : The following components have been deployed to
+      <strong>
+        <u>Microsoft Azure Cloud</u>
+      </strong>
+      <ul>
+        <li> Angular Front End - https://petapp.azurewebsites.net</li>
+        <li> Authentication and Authorization Web Service - https://authservice1.azurewebsites.net </li>
+        <li> Pet Web Service to https://petservice.azurewebsites.net </li>
+      </ul>
+    </li>
+
+  </ul>
+
+  <br>
+  <h2>
+    <u>Design Overview</u>
+  </h2>
+  <ul>
+
+    <li> User password sorted in the database has been encrypted with Bcrpt Hashing function</li>
+    <li> For simplicty, there are only 2 user roles(Authority) - ROLE_ADMIN and ROLE_USER </li>
+    <li> ROLE_ADMIN can create, edit and delete Pet Records </li>
+    <li> ROLE_USER can only view Pet Records </li>
+    <li> Upon successful authentication, JWT(token) generated using SignatureAlgorithm.HS512 together with User Profile will be sent back to Front End </li>
+    <li> Front End will save both the JWT and User Profile into sessionStorage></li>
+    <li> Angular's HTTP interceptor is used to automatically attach JWT(token) to all http requests</li>
+    <li> On Unit Testing side - Mock services are created by simply extending the original class and overriding few methods to
+      return desired results that are required to complete the testing. EG, MockPetService is created to extend PetService
+      and it overrides the getPets() method to return Faked Data for testing </li>
+  </ul>
+
+  <br>
+
+  <br>
+  <h2>
+    <u>Limitation/Outstanding Items</u>
+  </h2>
+  <ul>
+
+    <li> Under Microsoft Azure, the default configuration for FREE service plan is to unload any application if it have not been
+      access for a certain amount of time, as a result, it will be slow on first request.</li>
+    <li> Even though the program has been trying to customize the outgoing HTTP header with 'Authorization' and Token; the 'Authorization'
+      header is still missing when the request is sent to Authentication server, it is still missing on </li>
+    <li> However, it works fine when using POSTMAN to send the request with 'Authorization' and Token</li>
+    <li> Because of this, the workaround is to have PetService separated from AuthService. The AuthService does the Authentication
+      and returns the user profile to CLient. </li>
+    <li> THe PetService handles all the REST API calls for CRUD operations on PET. </li>
+  </ul>
+
+  <br>
+
+
+
+
+
+  <h3>
+    <u>Data Model - Authentication and Authorization </u>
+  </h3>
+
+
+  <img src="/assets/images/datamodel-security.png" style="text-align:center" />
+
+  <br>
+  <br>
+
+  <h3>
+    <u>Using JWT(JSON Web Token) for Authentication and Authorization </u>
+  </h3>
+
+  <img src="/assets/images/JWT.png" style="text-align:center" />
+
+</div>
